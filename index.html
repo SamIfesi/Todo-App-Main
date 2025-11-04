@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" href="images/favicon-32x32.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Todo App Main</title>
+  </head>
+  <body>
+    <main>
+      <div class="head">
+        <h1 class="logo">Todo</h1>
+        <button class="btn">
+          <img src="./images/icon-moon.svg" alt="Icon for the mode switch" />
+          <img src="./images/icon-sun.svg" alt="Icon for the mode switch" />
+        </button>
+      </div>
+      <form>
+        <div class="inputDiv">
+          <span class="checkmark"></span>
+          <input type="text" placeholder="Creat a new todo..." />
+        </div>
+        <ul class="list">
+          <li class="item active">
+            <span class="marker">
+              <img src="/images/icon-check.svg" alt="checker" />
+            </span>
+            <span> Complete online JavaScript course </span>
+            <img src="/images/icon-cross.svg" alt="close icon" class="close">
+          </li>
+          <li class="item">
+            <span class="marker">
+              <img src="/images/icon-check.svg" alt="checker" />
+            </span>
+            <span> Jog around the park 3x </span>
+            <img src="/images/icon-cross.svg" alt="close icon" class="close">
+          </li>
+          <li class="item">
+            <span class="marker">
+              <img src="/images/icon-check.svg" alt="checker" />
+            </span>
+            <span> 10 minutes mediation </span>
+            <img src="/images/icon-cross.svg" alt="close icon" class="close">
+          </li>
+          <li class="item">
+            <span class="marker">
+              <img src="/images/icon-check.svg" alt="checker" />
+            </span>
+            <span> Read for 1 hour </span>
+            <img src="/images/icon-cross.svg" alt="close icon" class="close">
+          </li>
+          <li class="item">
+            <span class="marker">
+              <img src="/images/icon-check.svg" alt="checker" />
+            </span>
+            <span> Pickup groceries </span>
+            <img src="/images/icon-cross.svg" alt="close icon" class="close">
+          </li>
+          <li class="item">
+            <span class="marker">
+              <img src="/images/icon-check.svg" alt="checker" />
+            </span>
+            <span> Complete Todo App on Frontend Mentor </span>
+            <img src="/images/icon-cross.svg" alt="close icon" class="close">
+          </li>
+          <li>
+            <a href="#" class="items-left">items left</a>
+            <span class="selector">
+              <p class="select selected" id="all">All</p>
+              <p class="select" id="active">Active</p>
+              <p class="select" id="complt">Completed</p>
+            </span>
+            <a href="#" class="clear">Clear Completed</a>
+          </li>
+        </ul>
+        <span class="selector mobileHide" id="selector">
+          <p class="select selected" id="all">All</p>
+          <p class="select" id="active">Active</p>
+          <p class="select" id="complt">Completed</p>
+        </span>
+        <p class="drag">Drag and drop to reorder list</p>
+      </form>
+      <div class="attribution">
+        Challenge by
+        <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+          >Frontend Mentor</a
+        >. Coded by
+        <a href="https://www.frontendmentor.io/profile/SamIfesi" target="_blank"
+          >Eke, Ifesinachi Samrose</a
+        >.
+      </div>
+    </main>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
