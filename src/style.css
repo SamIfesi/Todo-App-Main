@@ -5,8 +5,8 @@
   --primary-text: #484b6a;
   --secondary-text: #9394a5;
   --completed-text: #d2d3db;
-  --active-text: #3a7bfd;
   --primary-border: #cacde8;
+  --active-text: #3a7bfd;
   --checked-gradient: linear-gradient(#57ddff, #c058f3);
 
   --bgImg: url("/images/bg-desktop-light.jpg");
@@ -17,7 +17,6 @@
   --Gray-600-dark: #9394a5;
   --Purple-300-dark: #5c5f7f;
 
-  /* Semantic Variables */
   --primary-bg: #161722;
   --surface-bg: #25273c;
   --primary-text: #e4e5f1;
@@ -33,6 +32,24 @@
   padding: 0;
   box-sizing: border-box;
   font-family: "Josefin Sans";
+}
+body,
+.head,
+.btn img,
+.inputDiv,
+input,
+.checkmark,
+.list,
+li,
+.marker,
+.selector,
+.selected,
+.drag,
+.attribution,
+.checked {
+  transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out,
+    border 0.3s ease-in-out, box-shadow 0.3s ease-in-out,
+    opacity 0.3s ease-in-out;
 }
 body {
   background-color: var(--primary-bg);
@@ -56,7 +73,8 @@ main {
   width: 100%;
   max-width: 33rem;
   margin-bottom: 40px;
-  color: var(--surface-bg);
+  color: white;
+  position: relative;
 }
 .head h1 {
   letter-spacing: 0.5rem;
@@ -68,18 +86,34 @@ main {
   background: none;
   cursor: pointer;
   border-radius: 50%;
+  position: absolute;
+  top: 0;
+  right: 1.7rem;
 }
 .btn img {
+  position: absolute;
   width: 1.5rem;
   height: 1.5rem;
 }
-.btn img:nth-child(2) {
-  display: none;
+
+/* CHANGE MODE ICON START HERE */
+.btn img:nth-child(1) {
+  opacity: 1;
 }
+.btn img:nth-child(2) {
+  opacity: 0;
+}
+.darkTheme .btn img:nth-child(1) {
+  opacity: 0;
+}
+.darkTheme .btn img:nth-child(2) {
+  opacity: 1;
+}
+/* CHANGE MODE ICON END HERE */
+
 form {
   width: 100%;
   max-width: 33rem;
-  margin-bottom: 1rem;
 }
 .inputDiv {
   background: var(--surface-bg);
@@ -226,9 +260,9 @@ li:last-child {
   body {
     background-image: var(--bgImg);
   }
-main {
-  padding: 3rem;
-}
+  main {
+    padding: 3rem;
+  }
   .head h1 {
     font-size: 2.2rem;
   }

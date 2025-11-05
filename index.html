@@ -10,7 +10,7 @@
     <main>
       <div class="head">
         <h1 class="logo">Todo</h1>
-        <button class="btn">
+        <button class="btn" id="btn">
           <img src="./images/icon-moon.svg" alt="Icon for the mode switch" />
           <img src="./images/icon-sun.svg" alt="Icon for the mode switch" />
         </button>
@@ -22,7 +22,9 @@
         </div>
         <ul class="list">
           <li>
-            <a href="#" class="items-left">items left</a>
+            <a href="#" class="items-left"
+              ><span id="itemsLeft"></span> items left
+            </a>
             <span class="selector">
               <p class="select selected" id="all">All</p>
               <p class="select" id="active">Active</p>
