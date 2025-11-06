@@ -1,4 +1,7 @@
 import "./style.css";
+import iconCross from "/images/icon-cross.svg";
+import iconCheck from "/images/icon-check.svg";
+
 const form = document.querySelector("form");
 const list = document.querySelector("ul");
 const input = document.querySelector("input");
@@ -45,10 +48,10 @@ function createNewLI(task) {
   li.setAttribute("key-id", task.id);
   li.setAttribute("draggable", "true"); //FOR DRAG AND DROP
   li.innerHTML = `<span class="marker">
-              <img src="./images/icon-check.svg" alt="checker" />
+              <img src="${iconCheck}" alt="checker" />
             </span>
             <span>${task.text}</span>
-            <img src="./images/icon-cross.svg" alt="close icon" class="close">`;
+            <img src="${iconCross}" alt="close icon" class="close">`;
 
   // REMOVE ITEM FOR DOM AND LOCAL STORAGE
   const remove = li.querySelector(".close");
@@ -68,8 +71,7 @@ function createNewLI(task) {
 
   // TOGGLE CHECKED STATE AND TO SAVE TO LOCALSTORAGE
   li.addEventListener("click", (e) => {
-    const item =
-      e.target.classList.contains("item");
+    const item = e.target.classList.contains("item");
 
     if (item) {
       li.classList.toggle("checked");
