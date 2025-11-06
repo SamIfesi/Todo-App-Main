@@ -13,10 +13,6 @@
   --bgImgMob: url("/images/bg-mobile-light.jpg");
 }
 .darkTheme {
-  --Purple-800: #393a4c;
-  --Gray-600-dark: #9394a5;
-  --Purple-300-dark: #5c5f7f;
-
   --primary-bg: #161722;
   --surface-bg: #25273c;
   --primary-text: #e4e5f1;
@@ -42,8 +38,11 @@ input,
 .list,
 li,
 .marker,
+img,
 .selector,
 .selected,
+.select,
+.selectMob,
 .drag,
 .attribution,
 .checked {
@@ -73,7 +72,7 @@ main {
   width: 100%;
   max-width: 33rem;
   margin-bottom: 40px;
-  color: white;
+  color: #fafafa;
   position: relative;
 }
 .head h1 {
@@ -189,17 +188,17 @@ li {
   margin: 0 1rem 0 0;
   border: 2px solid var(--primary-border);
 }
-li:last-child a {
+.marker > img {
+  opacity: 0;
+}
+li:last-child {
+  background: var(--surface-bg);
   color: var(--secondary-text);
   font-size: 0.85rem;
   font-weight: 600;
-  text-decoration: none;
-}
-li:last-child {
   position: sticky;
   bottom: 0;
   z-index: 1;
-  background: var(--surface-bg);
   display: flex;
   justify-content: space-between;
   border-bottom: 0.05rem solid transparent;
@@ -246,7 +245,7 @@ li:last-child {
   display: flex;
 }
 .hide {
-  display: none;
+  opacity: 1;
 }
 .checked {
   text-decoration: line-through;
@@ -255,6 +254,35 @@ li:last-child {
 .item.checked .marker {
   background: var(--checked-gradient);
   border: 2px solid var(--surface-bg);
+}
+.item.checked .marker > img {
+  opacity: 1;
+}
+/* Fade out and in */
+.list.fade-out {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.list.fade-in {
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+/* Animate individual items */
+.item {
+  transform: translateY(10px);
+  opacity: 0;
+  animation: fadeSlideIn 0.4s ease forwards;
+}
+
+li.item.dragging{
+  opacity: 0.5;
+  background: var(--primary-border);
+}
+@keyframes fadeSlideIn {
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
 @media (min-width: 48rem) {
   body {
