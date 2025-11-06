@@ -191,7 +191,8 @@ li {
   width: 1.5rem;
   border-radius: 50%;
   margin: 0 1rem 0 0;
-  border: 2px solid var(--primary-border);  -webkit-user-select: none;
+  border: 2px solid var(--primary-border);
+  -webkit-user-select: none;
   -moz-user-select: none;
   user-select: none;
   touch-action: manipulation;
@@ -222,10 +223,6 @@ li:last-child {
   font-weight: 600;
   cursor: pointer;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-}
-.select:hover,
-.clear:hover {
-  color: var(--primary-text);
 }
 .selected {
   color: var(--active-text);
@@ -315,5 +312,9 @@ li.item.dragging {
   }
   .mobileHide {
     display: none;
+  }
+  .select:hover,
+  .clear:hover {
+    color: var(--primary-text);
   }
 }
