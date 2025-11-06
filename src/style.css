@@ -27,6 +27,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
   font-family: "Josefin Sans";
 }
 body,
@@ -165,6 +166,10 @@ li {
 .item {
   display: flex;
   align-items: center;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+  touch-action: manipulation;
 }
 .item > img {
   width: 1rem;
@@ -186,7 +191,10 @@ li {
   width: 1.5rem;
   border-radius: 50%;
   margin: 0 1rem 0 0;
-  border: 2px solid var(--primary-border);
+  border: 2px solid var(--primary-border);  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+  touch-action: manipulation;
 }
 .marker > img {
   opacity: 0;
@@ -214,6 +222,10 @@ li:last-child {
   font-weight: 600;
   cursor: pointer;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+.select:hover,
+.clear:hover {
+  color: var(--primary-text);
 }
 .selected {
   color: var(--active-text);
@@ -274,9 +286,9 @@ li:last-child {
   animation: fadeSlideIn 0.4s ease forwards;
 }
 
-li.item.dragging{
-  opacity: 0.5;
-  background: var(--primary-border);
+li.item.dragging {
+  /* opacity: 0.5; */
+  background: transparent;
 }
 @keyframes fadeSlideIn {
   to {
