@@ -234,6 +234,8 @@ li:last-child {
   margin: 2rem 0;
 }
 .attribution {
+  position: fixed;
+  bottom: 3rem;
   font-size: 0.75rem;
   text-align: center;
   color: var(--secondary-text);
