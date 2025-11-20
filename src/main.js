@@ -1,8 +1,8 @@
 import "./style.css";
 import "./prompt.css";
 import "./install.js";
-import iconCross from "/images/icon-cross.svg";
-import iconCheck from "/images/icon-check.svg";
+import iconCross from "/assets/images/icon-cross.svg";
+import iconCheck from "/assets/images/icon-check.svg";
 
 const form = document.querySelector("form");
 const list = document.querySelector("ul");
@@ -150,7 +150,6 @@ list.addEventListener("drop", (e) => {
 form.addEventListener("submit", (e) => {
   e.preventDefault();
   let tasks = JSON.parse(localStorage.getItem("key")) || [];
-  console.log(tasks);
   const inputValue = input.value.trim();
 
   if (inputValue !== "") {
