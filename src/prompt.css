@@ -1,0 +1,87 @@
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap");
+:root {
+  --primary-bg: #fafafa;
+  --surface-bg: #fafafa;
+  --primary-text: #484b6a;
+  --secondary-text: #9394a5;
+  --completed-text: #d2d3db;
+  --primary-border: #cacde8;
+  --active-text: #3a7bfd;
+  --checked-gradient: linear-gradient(#57ddff, #c058f3);
+
+  --bgImg: url("/images/bg-desktop-light.jpg");
+  --bgImgMob: url("/images/bg-mobile-light.jpg");
+}
+.darkTheme {
+  --primary-bg: #161722;
+  --surface-bg: #25273c;
+  --primary-text: #e4e5f1;
+  --secondary-text: #5c5f7f;
+  --completed-text: #4d5066;
+  --primary-border: #4d5066;
+
+  --bgImg: url("/images/bg-desktop-dark.jpg");
+  --bgImgMob: url("/images/bg-mobile-dark.jpg");
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+  font-family: "Josefin Sans";
+}
+
+.install-prompt {
+  position: fixed;
+  bottom: 0;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  background: var(--surface-bg);
+  color: var(--primary-text);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  padding: 1.5rem;
+  border-radius: 0.5rem 0.5rem 0 0;
+  z-index: 1000;
+  width: 100%;
+  max-width: 33rem;
+  transition: transform .75s ease, opacity .75s ease;
+}
+.install-prompt.show {
+  transform: translate(0);
+  opacity: 1;
+}
+.install-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.install-content h3 {
+  font-size: 1.25rem;
+}
+.install-content p {
+  font-size: 0.9rem;
+  color: var(--secondary-text);
+}
+.install-buttons {
+  display: flex;
+  gap: 1rem;
+}
+.install-buttons button {
+  flex: 1;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 5px;
+  font-weight: 600;
+  cursor: pointer;
+}
+#install{
+    background: green;
+    color: #e4e5f1;
+}
+#install:active{
+    background: rgba(0, 128, 0, 0.815);
+}
+#notNow {
+    color: var(--primary-text);
+    background: var(--primary-border);
+}

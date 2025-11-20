@@ -1,36 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap");
-:root {
-  --primary-bg: #fafafa;
-  --surface-bg: #fafafa;
-  --primary-text: #484b6a;
-  --secondary-text: #9394a5;
-  --completed-text: #d2d3db;
-  --primary-border: #cacde8;
-  --active-text: #3a7bfd;
-  --checked-gradient: linear-gradient(#57ddff, #c058f3);
-
-  --bgImg: url("/images/bg-desktop-light.jpg");
-  --bgImgMob: url("/images/bg-mobile-light.jpg");
-}
-.darkTheme {
-  --primary-bg: #161722;
-  --surface-bg: #25273c;
-  --primary-text: #e4e5f1;
-  --secondary-text: #5c5f7f;
-  --completed-text: #4d5066;
-  --primary-border: #4d5066;
-
-  --bgImg: url("/images/bg-desktop-dark.jpg");
-  --bgImgMob: url("/images/bg-mobile-dark.jpg");
-}
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  -webkit-tap-highlight-color: transparent;
-  font-family: "Josefin Sans";
-}
-body,
 .head,
 .btn img,
 .inputDiv,
@@ -45,9 +12,11 @@ img,
 .select,
 .selectMob,
 .drag,
+.install-prompt,
 .attribution,
+#notNow,
 .checked {
-  transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out,
+  transition: background-color .3s ease-in-out, color 0.3s ease-in-out,
     border 0.3s ease-in-out, box-shadow 0.3s ease-in-out,
     opacity 0.3s ease-in-out;
 }
@@ -56,7 +25,7 @@ body {
   background-image: var(--bgImgMob);
   background-repeat: no-repeat;
   background-size: 100% 30%;
-  transition: background-color 0.3s ease-in-out,
+  transition: background-color .3s ease-in-out,
     background-image 0.3s ease-in-out;
 }
 main {

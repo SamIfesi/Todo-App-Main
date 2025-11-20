@@ -1,4 +1,6 @@
 import "./style.css";
+import "./prompt.css";
+import "./install.js";
 import iconCross from "/images/icon-cross.svg";
 import iconCheck from "/images/icon-check.svg";
 
@@ -231,34 +233,4 @@ clearBtn.addEventListener("click", () => {
   const completedItems = list.querySelectorAll("li.item.checked");
   completedItems.forEach((item) => item.remove());
   updateItemsLeft(tasks);
-});
-
-// SERVICE WORKER REGISTRATION
-if ("serviceWorker" in navigator) {
-  window.addEventListener("load", () => {
-    navigator.serviceWorker
-      .register("/service-worker.js")
-      .then((reg) => console.log("Service Worker registered:", reg))
-      .catch((err) => console.error("Service Worker failed:", err));
-  });
-}
-
-// PWA INSTALLATION PROMPT
-let deferredPrompt;
-const installBtn = document.getElementById("installBtn");
-
-window.addEventListener("beforeinstallprompt", (e) => {
-  e.preventDefault();
-  deferredPrompt = e;
-  installBtn.style.display = "block";
-
-  installBtn.addEventListener("click", () => {
-    deferredPrompt.prompt();
-    deferredPrompt.userChoice.then((choiceResult) => {
-      if (choiceResult.outcome === "accepted") {
-        console.log("User accepted the install prompt");
-      }
-      deferredPrompt = null;
-    });
-  });
 });
