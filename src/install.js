@@ -2,7 +2,7 @@
 if ("serviceWorker" in navigator) {
   window.addEventListener("load", () => {
     navigator.serviceWorker
-      .register("/public/service-worker.js")
+      .register("/service-worker.js")
       .then((reg) => {
         console.log("Service Worker registered with scope:", reg.scope);
       })
@@ -42,8 +42,7 @@ installBtn.addEventListener("click", () => {
       deferredPrompt = null;
       installPrompt.style.display = "none";
     });
-  } 
-  else if (isIos()) {
+  } else if (isIos()) {
     alert(
       "To install on iOS:\n1. Tap the 'Share' button (square with arrow)\n2. Scroll down and select 'Add to Home Screen'"
     );
