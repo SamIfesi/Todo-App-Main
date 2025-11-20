@@ -252,12 +252,12 @@ const installBtn = document.getElementById("install");
 const notNowBtn = document.getElementById("notNow");
 const installPrompt = document.getElementById("installPrompt");
 
+setTimeout(() => {
+  installPrompt.classList.add("show");
+}, 3000);
 window.addEventListener("beforeinstallprompt", (e) => {
   e.preventDefault();
   deferredPrompt = e;
-  setTimeout(() => {
-    installPrompt.classList.add("show");
-  }, 3000);
 });
 
 // FUNCTION TO CHECK IF IOS DEVICE
