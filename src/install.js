@@ -21,7 +21,7 @@ window.addEventListener("beforeinstallprompt", (e) => {
   deferredPrompt = e;
   setTimeout(() => {
     installPrompt.classList.add("show");
-  }, 10000);
+  }, 3000);
 });
 
 // FUNCTION TO CHECK IF IOS DEVICE
@@ -55,6 +55,5 @@ installBtn.addEventListener("click", () => {
 });
 
 notNowBtn.addEventListener("click", () => {
-  console.log("Not Now");
   installPrompt.style.display = "none";
 });
