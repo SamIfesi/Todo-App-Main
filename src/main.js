@@ -290,5 +290,5 @@ installBtn.addEventListener("click", () => {
 });
 
 notNowBtn.addEventListener("click", () => {
-  installPrompt.style.display = "none";
+  installPrompt.classList.remove("show");
 });
