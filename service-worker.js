@@ -1,10 +1,8 @@
-self.addEventListener("install", (e) => {
-  e.waitUntil(
-    caches.open("todo-cache").then((cache) => {
-      return cache.addAll([
+const CACHE_NAME = "TodoApp-main"
+      const urlsToCache= [
         "/",
         "/index.html",
-        "/manifest.json",
+        // "/manifest.json",
         "/src/style.css",
         "/src/prompt.css",
         "/src/main.js",
@@ -19,37 +17,23 @@ self.addEventListener("install", (e) => {
         "/assets/images/bg-mobile-dark.jpg",
         "/assets/images/bg-desktop-light.jpg",
         "/assets/images/bg-desktop-dark.jpg"
-      ]);
+      ];
+
+// service-worker.js
+self.addEventListener("install", (e) => {
+  e.waitUntil(
+    caches.open(CACHE_NAME).then((cache) => {
+      return cache.addAll(urlsToCache);
     })
   );
 });
-
-// service-worker.js
-self.addEventListener('fetch', (event) => {
-  event.respondWith(
-    caches.match(event.request) 
-      .then((cachedResponse) => {
-        if (cachedResponse) {
-          return cachedResponse;
-        }
-        return fetch(event.request)
-          .then((networkResponse) => {
-            if (!networkResponse || networkResponse.status !== 200 || networkResponse.type !== 'basic') {
-              return networkResponse;
-            }
-            const responseToCache = networkResponse.clone();
-
-            caches.open('my-app-cache')
-              .then((cache) => {
-                cache.put(event.request, responseToCache);
-              });
-
-            return networkResponse;
-          })
-          .catch((error) => {
-            console.error('Fetch failed:', event.request.url, error);
-            throw error;
-          });
-      })
+self.addEventListener("fetch", (e) => {
+  e.respondWith(
+    caches.match(e.request).then((response) => {
+      if (response) {
+        return response;
+      }
+      return fetch(e.request);
+    })
   );
 });
