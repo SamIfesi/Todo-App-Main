@@ -252,12 +252,12 @@ const installBtn = document.getElementById("install");
 const notNowBtn = document.getElementById("notNow");
 const installPrompt = document.getElementById("installPrompt");
 
-setTimeout(() => {
-  installPrompt.classList.add("show");
-}, 3000);
 window.addEventListener("beforeinstallprompt", (e) => {
   e.preventDefault();
   deferredPrompt = e;
+  setTimeout(() => {
+    installPrompt.classList.add("show");
+  }, 3000);
 });
 
 // FUNCTION TO CHECK IF IOS DEVICE
@@ -274,9 +274,13 @@ installBtn.addEventListener("click", () => {
     deferredPrompt.userChoice.then((choiceResult) => {
       if (choiceResult.outcome === "accepted") {
         console.log("User accepted the install prompt");
+      } else {
+        console.log("User dismissed the install prompt");
+
+        installPrompt.classList.remove("show");
       }
       deferredPrompt = null;
-      installPrompt.style.display = "none";
+      installPrompt.classList.remove("show");
     });
   } else if (isIos()) {
     alert(
