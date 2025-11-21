@@ -1,34 +1,22 @@
-// SERVICE WORKER REGISTRATION
-if ("serviceWorker" in navigator) {
-  window.addEventListener("load", () => {
-    navigator.serviceWorker
-      .register("/service-worker.js")
-      .then((reg) => {
-        console.log("Service Worker registered with scope:", reg.scope);
-      })
-      .catch((err) => console.error(err));
-  });
-}
-
 // PWA INSTALLATION PROMPT
 let deferredPrompt;
 const installBtn = document.getElementById("install");
 const notNowBtn = document.getElementById("notNow");
 const installPrompt = document.getElementById("installPrompt");
 
-window.addEventListener("beforeinstallprompt", (e) => {
-  e.preventDefault();
-  deferredPrompt = e;
-  setTimeout(() => {
-    installPrompt.classList.add("show");
-  }, 3000);
-});
-
 // FUNCTION TO CHECK IF IOS DEVICE
 const isIos = () => {
   const userAgent = window.navigator.userAgent.toLowerCase();
   return /iphone|ipad|ipod/.test(userAgent);
 };
+
+// BEFORE INSTALL PROMPT EVENT
+window.addEventListener("beforeinstallprompt", (e) => {
+  console.log("👍 beforeinstallprompt fired!");
+  e.preventDefault();
+  deferredPrompt = e;
+  installPrompt.classList.add("shown");
+});
 
 // INSTALL BUTTON CLICK EVENT
 installBtn.addEventListener("click", () => {
@@ -38,21 +26,29 @@ installBtn.addEventListener("click", () => {
     deferredPrompt.userChoice.then((choiceResult) => {
       if (choiceResult.outcome === "accepted") {
         console.log("User accepted the install prompt");
+      } else {
+        console.log("User dismissed the install prompt");
+
+        installPrompt.classList.remove("shown");
       }
       deferredPrompt = null;
-      installPrompt.style.display = "none";
+      installPrompt.classList.remove("shown");
     });
   } else if (isIos()) {
     alert(
       "To install on iOS:\n1. Tap the 'Share' button (square with arrow)\n2. Scroll down and select 'Add to Home Screen'"
     );
-  } else {
-    alert(
-      "To install: Look for the 'Add to Home Screen' option in your browser menu."
-    );
   }
 });
 
 notNowBtn.addEventListener("click", () => {
-  installPrompt.style.display = "none";
+  installPrompt.classList.remove("shown");
+  deferredPrompt = null;
+});
+
+// APP INSTALLED EVENT
+window.addEventListener("appinstalled", (evt) => {
+  console.log("👍 App was installed.");
+  installPrompt.classList.remove("shown");
+  deferredPrompt = null;
 });
