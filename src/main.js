@@ -252,19 +252,21 @@ const installBtn = document.getElementById("install");
 const notNowBtn = document.getElementById("notNow");
 const installPrompt = document.getElementById("installPrompt");
 
-window.addEventListener("beforeinstallprompt", (e) => {
-  e.preventDefault();
-  deferredPrompt = e;
-  setTimeout(() => {
-    installPrompt.classList.add("show");
-  }, 3000);
-});
+setTimeout(() => {
+  installPrompt.classList.add("show");
+}, 3000);
 
 // FUNCTION TO CHECK IF IOS DEVICE
 const isIos = () => {
   const userAgent = window.navigator.userAgent.toLowerCase();
   return /iphone|ipad|ipod/.test(userAgent);
 };
+
+// BEFORE INSTALL PROMPT EVENT
+window.addEventListener("beforeinstallprompt", (e) => {
+  e.preventDefault();
+  deferredPrompt = e;
+});
 
 // INSTALL BUTTON CLICK EVENT
 installBtn.addEventListener("click", () => {
