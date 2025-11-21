@@ -9,8 +9,8 @@
   --active-text: #3a7bfd;
   --checked-gradient: linear-gradient(#57ddff, #c058f3);
 
-  --bgImg: url("/assets/images/bg-desktop-light.jpg");
-  --bgImgMob: url("/assets/images/bg-mobile-light.jpg");
+  --bgImg: url("/images/bg-desktop-light.jpg");
+  --bgImgMob: url("/images/bg-mobile-light.jpg");
 }
 .darkTheme {
   --primary-bg: #161722;
@@ -20,8 +20,8 @@
   --completed-text: #4d5066;
   --primary-border: #4d5066;
 
-  --bgImg: url("/assets/images/bg-desktop-dark.jpg");
-  --bgImgMob: url("/assets/images/bg-mobile-dark.jpg");
+  --bgImg: url("/images/bg-desktop-dark.jpg");
+  --bgImgMob: url("/images/bg-mobile-dark.jpg");
 }
 * {
   margin: 0;

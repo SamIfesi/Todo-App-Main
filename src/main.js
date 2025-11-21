@@ -1,8 +1,8 @@
 import "./style.css";
 import "./prompt.css";
 // import "./install.js";
-import iconCross from "/assets/images/icon-cross.svg";
-import iconCheck from "/assets/images/icon-check.svg";
+import iconCross from "/images/icon-cross.svg";
+import iconCheck from "/images/icon-check.svg";
 
 const form = document.querySelector("form");
 const list = document.querySelector("ul");
