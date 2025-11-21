@@ -282,10 +282,6 @@ installBtn.addEventListener("click", () => {
     alert(
       "To install on iOS:\n1. Tap the 'Share' button (square with arrow)\n2. Scroll down and select 'Add to Home Screen'"
     );
-  } else {
-    alert(
-      "To install: Look for the 'Add to Home Screen' option in your browser menu."
-    );
   }
 });
 
