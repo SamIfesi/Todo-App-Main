@@ -255,7 +255,7 @@ window.addEventListener("beforeinstallprompt", (e) => {
   console.log("👍 beforeinstallprompt fired!");
   e.preventDefault();
   deferredPrompt = e;
-  installPrompt.classList.add("show");
+  installPrompt.classList.add("shown");
 });
 
 // INSTALL BUTTON CLICK EVENT
@@ -269,10 +269,10 @@ installBtn.addEventListener("click", () => {
       } else {
         console.log("User dismissed the install prompt");
 
-        installPrompt.classList.remove("show");
+        installPrompt.classList.remove("shown");
       }
       deferredPrompt = null;
-      installPrompt.classList.remove("show");
+      installPrompt.classList.remove("shown");
     });
   } else if (isIos()) {
     alert(
@@ -282,5 +282,5 @@ installBtn.addEventListener("click", () => {
 });
 
 notNowBtn.addEventListener("click", () => {
-  installPrompt.classList.remove("show");
+  installPrompt.classList.remove("shown");
 });
