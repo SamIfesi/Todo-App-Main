@@ -1,8 +1,8 @@
 import "./style.css";
 import "./prompt.css";
 // import "./install.js";
-import iconCross from "/images/icon-cross.svg";
-import iconCheck from "/images/icon-check.svg";
+const iconCross = "/images/icon-cross.svg";
+const iconCheck = "/images/icon-check.svg";
 
 const form = document.querySelector("form");
 const list = document.querySelector("ul");
@@ -234,29 +234,15 @@ clearBtn.addEventListener("click", () => {
   updateItemsLeft(tasks);
 });
 
-// SERVICE WORKER REGISTRATION
-if ("serviceWorker" in navigator) {
-  window.addEventListener("load", () => {
-    navigator.serviceWorker
-      .register("/service-worker.js")
-      .then((reg) => {
-        console.log("Service Worker registered with scope:", reg.scope);
-      })
-      .catch((error) =>
-        console.error("Service worker registration failed", error)
-      );
-  });
-}
-
 // PWA INSTALLATION PROMPT
 let deferredPrompt;
 const installBtn = document.getElementById("install");
 const notNowBtn = document.getElementById("notNow");
 const installPrompt = document.getElementById("installPrompt");
 
-setTimeout(() => {
-  installPrompt.classList.add("show");
-}, 3000);
+// setTimeout(() => {
+//   installPrompt.classList.add("show");
+// }, 3000);
 
 // FUNCTION TO CHECK IF IOS DEVICE
 const isIos = () => {
@@ -266,8 +252,10 @@ const isIos = () => {
 
 // BEFORE INSTALL PROMPT EVENT
 window.addEventListener("beforeinstallprompt", (e) => {
+  console.log("👍 beforeinstallprompt fired!");
   e.preventDefault();
   deferredPrompt = e;
+  installPrompt.classList.add("show");
 });
 
 // INSTALL BUTTON CLICK EVENT

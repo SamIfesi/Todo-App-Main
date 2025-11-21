@@ -26,5 +26,6 @@ dist-ssr
 # MY GIT IGNORE
 *.md
 design/
+installer/
 preview.jpg
 /assets/images/favicon-32x32.png
